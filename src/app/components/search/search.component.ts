@@ -28,9 +28,10 @@ export class SearchComponent implements OnInit {
   search(value: any) {
     console.log('val', value);
     this.filteredValues = this.items.filter((item) => {
-      if (item?.tags?.cuisine?.includes(value)) {
+
+      if (item?.tags?.cuisine?.toLowerCase().includes(value)) {
         return true;
-      } else if (item?.tags?.brand?.includes(value)) {
+      } else if (item?.tags?.brand?.toLowerCase().includes(value)) {
         return true;
       }
     });

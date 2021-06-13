@@ -120,8 +120,8 @@ export class ListComponent implements OnInit {
 
 
     // delete from localstorage
-    const choiceInLS = this.choices.filter(c => c.text === choice.text);
-    this.choices.splice(choiceInLS.index, 1);
+    const choiceInLS = this.choices.filter(c => c.text === choice?.text);
+    this.choices.splice(choiceInLS?.index, 1);
 
     console.log('deleted ?', this.choices);
     this.localstorage.pushItems('choices', this.choices);
