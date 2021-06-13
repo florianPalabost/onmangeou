@@ -123,11 +123,12 @@ export class AppComponent implements OnInit {
     }
 
     // todo Get Next Index
-
+    const items = this.localStorage.retrieveItems('choices')  !== null  ? this.localStorage.retrieveItems('choices') : [];
+    let lengthChoices = Object.keys(items).length;
     const objChoice = {
       text: choice,
       nbTime: 0,
-      index: this.choices.length > 0 ? this.choices.length++ : 1
+      index: lengthChoices++
     };
     //  add on state + localstorage
     this.choices.push(objChoice);
