@@ -1,0 +1,25 @@
+<div class="form-inline mr-auto mb-4 ">
+  <input type="text" (input)="search($event.target.value)"
+         class="form-control rounded-0 bg-light ser-input mx-auto w-50" id="ser-input" style="border: none" placeholder="Type to search type of cooking ..." novalidate>
+</div>
+
+<div *ngIf="showDropDown" (click)="hideDropDown($event)">
+  <ul *ngIf="filteredValues.length > 0" class="list-group filter-select w-50" id="list" style="position: absolute;z-index: 99999;left: 25%;">
+    <li *ngFor="let item of filteredValues" class="list-group-item filter-select-item" style="background-color: beige">
+        <div class="row">
+          <div class="col-6" >
+            <p *ngIf="item?.opening_hours">Horaire : {{item?.opening_hours}}</p>
+            <p *ngIf="item['contact:phone']">Tel : {{item['contact:phone']}}</p>
+          </div>
+          <div class="col-6">
+            <a href="#" style="width: 100%;" (click)="addToWheel(item?.name)">
+              <p class="title-search">{{item?.name}}</p>
+            </a>
+          </div>
+        </div>
+    </li>
+    <li class="list-group-item filter-select-item">
+      <a *ngIf="valueSearch" [routerLink]="">See all results</a>
+    </li>
+  </ul>
+</div>

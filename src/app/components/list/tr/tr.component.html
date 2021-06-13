@@ -1,0 +1,14 @@
+<tr *ngIf="choice">
+  <td><p [id]="'span_' + choice?.index">{{choice?.text}}</p></td>
+  <td>{{choice?.nbTime}}</td>
+  <td>
+    <button class="btn" (click)="increment(choice)">
+      <fa-icon [icon]="faPlus" class="align-top" aria-hidden="true" [ngbTooltip]="'Increment nb time(s)'"></fa-icon>
+    </button>
+  </td>
+  <td>
+    <button class="btn btnDelete" (click)="removeChoice(choice)">
+      <fa-icon [icon]="faTrash" class="align-top" aria-hidden="true" [ngbTooltip]="'Delete choice'"></fa-icon>
+    </button>
+  </td>
+</tr>

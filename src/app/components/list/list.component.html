@@ -1,0 +1,10 @@
+<div id="list-choices">
+  <input type="text" class="inputChoice" placeholder="add a choice"/>
+  <button class="btn btn-info" id="addChoiceBtn" (click)="addChoice()">Add</button>
+
+  <div id="choices" *ngIf="choices.length > 0">
+    <table id="list">
+      <app-tr *ngFor="let choice of choices" [choice]="choice" (deleteChoice)="deleteChoice($event)" (updateChoice)="update($event)" ></app-tr>
+    </table>
+  </div>
+</div>
